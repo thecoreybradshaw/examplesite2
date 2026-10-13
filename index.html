@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Azure Horizon Villa | Welcome Guide</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans for a crisp, clean feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beach: {
+                            lightBg: '#F8FAFC',
+                            card: '#FFFFFF',
+                            border: '#E2E8F0',
+                            ocean: '#0284C7',
+                            deep: '#0369A1',
+                            teal: '#0EA5E9',
+                            sand: '#FDFBF7',
+                            textDark: '#0F172A',
+                            textMuted: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-beach-lightBg text-beach-textDark font-sans antialiased min-h-screen selection:bg-beach-ocean selection:text-white">
+
+    <!-- Hero Banner with Bright Modern Beach House Exterior -->
+    <header class="relative bg-sky-900 border-b border-beach-border overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-55">
+            <!-- Stunning bright daylight modern beach house exterior -->
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Modern Beach House background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-900/40 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-md mx-auto px-5 pt-10 pb-8 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
+                <i class="fa-solid fa-umbrella-beach"></i> Malibu, California
+            </div>
+            <h1 class="text-3xl font-bold tracking-tight text-white mb-2">The Azure Horizon Villa</h1>
+            <p class="text-sky-100 text-sm max-w-xs mx-auto mb-6">Welcome to your private oceanfront sanctuary. Step out onto the sand and unwind.</p>
+            
+            <!-- Quick-action buttons bar -->
+            <div class="grid grid-cols-4 gap-2 bg-white/95 backdrop-blur-md p-2 rounded-2xl border border-sky-100 shadow-xl">
+                <a href="#rules-section" class="flex flex-col items-center justify-center py-2 px-1 rounded-xl hover:bg-sky-50 transition-colors text-slate-700 hover:text-beach-ocean">
+                    <i class="fa-solid fa-book-open text-beach-ocean text-lg mb-1"></i>
+                    <span class="text-[11px] font-semibold">Your Stay</span>
+                </a>
+                <a href="#wifi-section" class="flex flex-col items-center justify-center py-2 px-1 rounded-xl hover:bg-sky-50 transition-colors text-slate-700 hover:text-beach-ocean">
+                    <i class="fa-solid fa-wifi text-beach-ocean text-lg mb-1"></i>
+                    <span class="text-[11px] font-semibold">Wi-Fi</span>
+                </a>
+                <a href="#local-section" class="flex flex-col items-center justify-center py-2 px-1 rounded-xl hover:bg-sky-50 transition-colors text-slate-700 hover:text-beach-ocean">
+                    <i class="fa-solid fa-compass text-beach-ocean text-lg mb-1"></i>
+                    <span class="text-[11px] font-semibold">Local Info</span>
+                </a>
+                <a href="#emergency-section" class="flex flex-col items-center justify-center py-2 px-1 rounded-xl hover:bg-rose-50 transition-colors text-slate-700 hover:text-rose-600">
+                    <i class="fa-solid fa-triangle-exclamation text-rose-500 text-lg mb-1"></i>
+                    <span class="text-[11px] font-semibold">SOS</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6 space-y-6">
+
+        <!-- Toast notification container -->
+        <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 transform -translate-y-24 opacity-0 transition-all duration-300 bg-sky-600 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-semibold">
+            <i class="fa-solid fa-circle-check text-lg"></i>
+            <span id="toast-message">Copied to clipboard!</span>
+        </div>
+
+        <!-- 2. Your Stay Accordion -->
+        <section id="rules-section" class="space-y-3">
+            <div class="flex items-center justify-between px-1">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-beach-ocean"></i> Your Stay
+                </h2>
+                <span class="text-xs text-slate-500">Tap to expand</span>
+            </div>
+
+            <!-- Accordion Item 1: Checkout Guide -->
+            <div class="bg-beach-card border border-beach-border rounded-xl overflow-hidden transition-all shadow-sm">
+                <button onclick="toggleAccordion('checkout')" class="w-full flex items-center justify-between p-4 text-left font-medium text-slate-900 hover:bg-sky-50/50 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <span>Checkout Instructions (11:00 AM)</span>
+                    </div>
+                    <i id="icon-checkout" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+                </button>
+                <div id="content-checkout" class="hidden px-4 pb-4 pt-1 text-xs text-slate-600 space-y-2 border-t border-sky-100 bg-sky-50/30">
+                    <p>• Set AC units to 72°F upon departure.</p>
+                    <p>• Rinse sand off feet using the outdoor patio shower before coming inside.</p>
+                    <p>• Place used bath towels in the laundry hamper.</p>
+                    <p>• Lock all sliding glass patio doors and front entry. Safe travels!</p>
+                </div>
+            </div>
+
+            <div class="space-y-2.5">
+                <!-- Accordion Item 2: Deck & Fire Pit -->
+                <div class="bg-beach-card border border-beach-border rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleAccordion('deck')" class="w-full flex items-center justify-between p-4 text-left font-medium text-slate-900 hover:bg-sky-50/50 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-fire"></i>
+                            </div>
+                            <span>Deck Fire Pit & Sound System</span>
+                        </div>
+                        <i id="icon-deck" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-deck" class="hidden px-4 pb-4 pt-1 text-xs text-slate-600 space-y-2 border-t border-sky-100 bg-sky-50/30">
+                        <p>• The gas fire pit ignition switch is located on the side stone panel.</p>
+                        <p>• Please make sure the safety valve is turned off when finished.</p>
+                        <p>• Bluetooth speakers can be paired via device name "AzureAudio" (no passkey needed).</p>
+                        <p>• Quiet hours on the ocean deck begin at 10:00 PM local time.</p>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3: Kitchen & Espresso -->
+                <div class="bg-beach-card border border-beach-border rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleAccordion('coffee')" class="w-full flex items-center justify-between p-4 text-left font-medium text-slate-900 hover:bg-sky-50/50 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <span>Espresso Machine & Kitchen</span>
+                        </div>
+                        <i id="icon-coffee" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-coffee" class="hidden px-4 pb-4 pt-1 text-xs text-slate-600 space-y-2 border-t border-sky-100 bg-sky-50/30">
+                        <p>• Professional espresso machine is ready to use; whole beans are provided in the glass jar.</p>
+                        <p>• Filtered water tap is available directly left of the main sink faucet.</p>
+                        <p>• Please load and start the dishwasher before departure if possible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Wi-Fi Access Card -->
+        <section id="wifi-section" class="bg-beach-card border border-beach-border rounded-2xl p-5 shadow-sm relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 text-sky-100/60 text-8xl pointer-events-none">
+                <i class="fa-solid fa-wifi"></i>
+            </div>
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-beach-ocean">
+                        <i class="fa-solid fa-wifi text-lg"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-base text-slate-900">Wi-Fi Network Info</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-3 bg-sky-50/50 p-4 rounded-xl border border-sky-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-wider text-slate-500 block font-semibold">Network Name</span>
+                        <span id="wifi-name" class="font-mono text-sm text-slate-900 font-medium">AzureHorizon_Guest</span>
+                    </div>
+                </div>
+                <hr class="border-sky-200/60">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span class="text-[11px] uppercase tracking-wider text-slate-500 block font-semibold">Password</span>
+                        <span id="wifi-pass" class="font-mono text-sm text-beach-ocean font-bold">malibubeaches2026!</span>
+                    </div>
+                    <button onclick="copyText('malibubeaches2026!', 'Wi-Fi password copied!')" class="px-3 py-1.5 bg-beach-ocean hover:bg-beach-deep active:scale-95 text-xs rounded-lg text-white font-medium shadow-sm transition flex items-center gap-1.5">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Local Recommendations Section with Category Tabs -->
+        <section id="local-section" class="space-y-3">
+            <div class="flex items-center justify-between px-1">
+                <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-compass text-beach-ocean"></i> Local Recommendations
+                </h2>
+                <span class="text-xs text-slate-500">Handpicked by Host</span>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex rounded-xl bg-white p-1 border border-beach-border shadow-sm">
+                <button onclick="switchTab('coffee')" id="tab-btn-coffee" class="flex-1 py-2 text-xs font-semibold rounded-lg bg-beach-ocean text-white shadow transition">
+                    <i class="fa-solid fa-mug-saucer mr-1"></i> Cafes
+                </button>
+                <button onclick="switchTab('dining')" id="tab-btn-dining" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-utensils mr-1"></i> Dining
+                </button>
+                <button onclick="switchTab('beaches')" id="tab-btn-beaches" class="flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition">
+                    <i class="fa-solid fa-water mr-1"></i> Beaches
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-content-coffee" class="space-y-3 tab-panel">
+                <div class="bg-beach-card border border-beach-border rounded-xl p-4 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-start justify-between mb-1">
+                            <h3 class="font-bold text-sm text-slate-900">Carbon Beach Coffee</h3>
+                            <span class="text-[10px] bg-sky-100 text-beach-ocean px-2 py-0.5 rounded-full font-medium">0.8 miles</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Oceanfront espresso bar offering fresh house-baked croissants and patio seating right over the waves.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-sky-100 text-xs">
+                        <span class="text-slate-500 truncate max-w-[200px]"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> Pacific Coast Hwy, Malibu</span>
+                        <a href="https://maps.google.com/?q=Carbon+Beach+Coffee+Malibu" target="_blank" class="text-beach-ocean font-semibold hover:underline flex items-center gap-1">
+                            Map <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-content-dining" class="space-y-3 tab-panel hidden">
+                <div class="bg-beach-card border border-beach-border rounded-xl p-4 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-start justify-between mb-1">
+                            <h3 class="font-bold text-sm text-slate-900">Nobu Malibu</h3>
+                            <span class="text-[10px] bg-sky-100 text-beach-ocean px-2 py-0.5 rounded-full font-medium">2.1 miles</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">World-famous Japanese-peruvian seafood dining with panoramic ocean views. Reservations required well in advance.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-sky-100 text-xs">
+                        <span class="text-slate-500 truncate max-w-[200px]"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> 22706 PCH, Malibu</span>
+                        <a href="https://maps.google.com/?q=Nobu+Malibu" target="_blank" class="text-beach-ocean font-semibold hover:underline flex items-center gap-1">
+                            Map <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-content-beaches" class="space-y-3 tab-panel hidden">
+                <div class="bg-beach-card border border-beach-border rounded-xl p-4 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-start justify-between mb-1">
+                            <h3 class="font-bold text-sm text-slate-900">El Matador State Beach</h3>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-600 px-2 py-0.5 rounded-full font-medium">Scenic / 4.5 mi</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Rugged cliffs, dramatic rock formations, and hidden sea caves. Ideal for sunset photography.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-sky-100 text-xs">
+                        <span class="text-slate-500 truncate max-w-[200px]"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> 32350 Pacific Coast Hwy</span>
+                        <a href="https://maps.google.com/?q=El+Matador+State+Beach" target="_blank" class="text-beach-ocean font-semibold hover:underline flex items-center gap-1">
+                            Map <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Emergency & Safety Section -->
+        <section id="emergency-section" class="bg-beach-card border border-rose-200 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-rose-600">
+                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-base text-slate-900">Emergency Contacts</h2>
+                    <p class="text-xs text-slate-500">In case of urgent assistance</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <a href="tel:911" class="p-3 bg-sky-50/50 rounded-xl border border-sky-100 hover:border-rose-300 text-center transition flex flex-col items-center justify-center">
+                    <span class="text-xs text-slate-500 mb-1">Police / Fire / Medical</span>
+                    <span class="font-bold text-rose-600 text-base"><i class="fa-solid fa-phone mr-1.5"></i> 911</span>
+                </a>
+                <a href="tel:3105550199" class="p-3 bg-sky-50/50 rounded-xl border border-sky-100 hover:border-sky-300 text-center transition flex flex-col items-center justify-center">
+                    <span class="text-xs text-slate-500 mb-1">Local Sheriff Precinct</span>
+                    <span class="font-bold text-slate-900 text-xs"><i class="fa-solid fa-shield-halved mr-1.5 text-beach-ocean"></i> (310) 555-0199</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Host Contact Footer -->
+        <footer class="pt-2 pb-10 text-center space-y-4">
+            <div class="bg-gradient-to-b from-white to-sky-50/50 border border-beach-border rounded-2xl p-5 shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-beach-ocean text-white font-bold text-lg flex items-center justify-center mx-auto mb-3 shadow-md">
+                    SL
+                </div>
+                <h3 class="font-bold text-slate-900 text-base">Your Superhost: Sophia</h3>
+                <p class="text-xs text-slate-600 max-w-xs mx-auto mb-4">Have questions about the coastline or need recommendations? Reach out anytime!</p>
+                
+                <div class="flex gap-2 justify-center">
+                    <a href="tel:13105550143" class="flex-1 py-2.5 px-4 bg-beach-ocean hover:bg-beach-deep text-white text-xs font-semibold rounded-xl shadow transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone-volume"></i> Call Host
+                    </a>
+                    <a href="sms:13105550143" class="flex-1 py-2.5 px-4 bg-white hover:bg-sky-50 text-slate-700 text-xs font-semibold rounded-xl border border-beach-border transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-comment-sms"></i> Text Host
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        function copyText(text, message) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(message);
+                }).catch(() => {
+                    fallbackCopyText(text, message);
+                });
+            } else {
+                fallbackCopyText(text, message);
+            }
+        }
+
+        function fallbackCopyText(text, message) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(message);
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('-translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        function toggleAccordion(id) {
+            const content = document.getElementById('content-' + id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        function switchTab(category) {
+            const categories = ['coffee', 'dining', 'beaches'];
+            
+            categories.forEach(cat => {
+                const panel = document.getElementById('tab-content-' + cat);
+                const btn = document.getElementById('tab-btn-' + cat);
+                
+                if (cat === category) {
+                    panel.classList.remove('hidden');
+                    btn.className = "flex-1 py-2 text-xs font-semibold rounded-lg bg-beach-ocean text-white shadow transition";
+                } else {
+                    panel.classList.add('hidden');
+                    btn.className = "flex-1 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
